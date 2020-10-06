@@ -1,0 +1,41 @@
+<<html>   
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=deviece-width,initial-scale=&.à">  
+	<title>JavaScript</title>   
+	<link rel="stylesheet" href="style.css">
+</head>   
+
+<body>  
+ 
+	<h1>Paramétrer une pièce catia avec JavaScript</h1>   
+
+	<label for="LongueurDroite">LongueurDroite (1 to 4 characters):</label>
+
+	<input type="text" id="LgDroite1" name="LongueurDroite" required
+       minlength="1" maxlength="4" size="10">
+
+<FORM>   
+	<INPUT TYPE="button" VALUE="Actualiser la longueur" ONCLICK="LaunchCATIAV5()">   
+</FORM>   
+   
+<script language="Javascript">   
+   
+function LaunchCATIAV5()   
+{   
+  var CATIA    
+       
+  CATIA = new ActiveXObject("CATIA.Application");   
+  CATIA.Visible = true;   
+     
+  // Add a new Part 
+  MyDocument = CATIA.ActiveDocument.part  ;
+  MyDocument.Parameters.Item("LongueurDroite.1").value = LgDroite1.value ;
+  
+
+  MyDocument.Update();   
+   
+   
+}   
+</script>   
+</html>   
